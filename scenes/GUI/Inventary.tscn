@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/GUI/Inventary.gd" type="Script" id=1]
 [ext_resource path="res://assets/inventory/inventarybox.png" type="Texture" id=2]
-[ext_resource path="res://scenes/GUI/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/GUI/GridItems.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
@@ -44,7 +44,7 @@ modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 _sections_unfolded = [ "Axis Stretch", "Content Margin", "Expand Margin", "Margin", "Modulate", "Resource" ]
 
-[node name="Inventary" type="Node2D" index="0"]
+[node name="Inventary" type="Node2D"]
 
 script = ExtResource( 1 )
 
