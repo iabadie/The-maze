@@ -15,7 +15,7 @@ filter_clip = false
 
 resource_name = "downAnimation"
 length = 0.5
-loop = true
+loop = false
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("characterSprite:frame")
@@ -133,7 +133,7 @@ texture = SubResource( 1 )
 flip_h = true
 vframes = 3
 hframes = 4
-frame = 1
+frame = 8
 _sections_unfolded = [ "Animation", "Offset", "Region" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
@@ -148,10 +148,13 @@ anims/leftAnimation = SubResource( 3 )
 anims/rightAnimation = SubResource( 4 )
 anims/upAnimation = SubResource( 5 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
 position = Vector2( -1.15032, 21.3708 )
 shape = SubResource( 6 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 

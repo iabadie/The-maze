@@ -1,5 +1,9 @@
 extends Node2D
 
+const pi = 3.1415;
+const pi4 = pi/4;
+const pi_3_4 = (pi * 3) / 4
+
 var touched = false
 var direction = constants.down;
 const max_ration_length = 40;
@@ -18,16 +22,15 @@ func _process(delta):
 			# distancia sea de max_ration_length
 			var new_position = get_local_mouse_position().clamped(max_ration_length)
 			$boton.position = new_position
-			
 			var angle = new_position.angle();
-			if angle <= 1.5 || angle >= 0.5:
+			if angle <= pi_3_4 && angle >= pi4:
 				direction = constants.down;
-			elif angle <= -1.5 || angle >= 1.5:
-				direction = constants.left;
-			elif angle >= -1.5 || angle <= -0.5:
+			elif angle >= -pi_3_4 && angle <= -pi4:
 				direction = constants.up;
-			elif angle >= -0.5 || angle <= 0.5:
+			elif angle >= -pi4 && angle <= pi4:
 				direction = constants.right;
+			else:
+				direction = constants.left;
 			
 			# Emite una señal enviando la nueva posición ( clampeada ) para ser utilizada luego por el personaje
 			# Ademas envía el vector proyectado al eje correspondiente dependiendod el angulo del mismo (arriba, abajo, izquierda, derecha)
