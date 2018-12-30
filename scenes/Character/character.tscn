@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Character/character.gd" type="Script" id=1]
-[ext_resource path="res://assets/character/Character_NPC_Princess.png" type="Texture" id=2]
+[ext_resource path="res://assets/character/luz.png" type="Texture" id=2]
+[ext_resource path="res://assets/character/Character_NPC_Princess.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 400, 300 )
 margin = Rect2( 0, 0, 0, 0 )
 filter_clip = false
@@ -15,7 +16,7 @@ filter_clip = false
 
 resource_name = "downAnimation"
 length = 0.5
-loop = true
+loop = false
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("characterSprite:frame")
@@ -34,7 +35,7 @@ tracks/0/keys = {
 
 resource_name = "leftAnimation"
 length = 0.5
-loop = true
+loop = false
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("characterSprite:frame")
@@ -65,7 +66,7 @@ tracks/1/keys = {
 
 resource_name = "rightAnimation"
 length = 0.5
-loop = true
+loop = false
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("characterSprite:frame")
@@ -96,7 +97,7 @@ tracks/1/keys = {
 
 resource_name = "upAnimation"
 length = 0.5
-loop = true
+loop = false
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("characterSprite:frame")
@@ -126,17 +127,41 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="characterSprite" type="Sprite" parent="." index="0"]
+[node name="Light2D" type="Light2D" parent="." index="0"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+
+[node name="characterSprite" type="Sprite" parent="." index="1"]
 
 position = Vector2( -0.929565, 0.951233 )
 texture = SubResource( 1 )
 flip_h = true
 vframes = 3
 hframes = 4
-frame = 1
+frame = 8
 _sections_unfolded = [ "Animation", "Offset", "Region" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -148,10 +173,13 @@ anims/leftAnimation = SubResource( 3 )
 anims/rightAnimation = SubResource( 4 )
 anims/upAnimation = SubResource( 5 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
 position = Vector2( -1.15032, 21.3708 )
 shape = SubResource( 6 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 

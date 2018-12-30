@@ -28,10 +28,12 @@ func add_light_time(timePlus):
 		time += timePlus;
 	set_particles(time)
 
+# Function to rest the TIME_TO_REST to the current time and change the
+# particles emittion depending the time value.
+# Also, if resulting time is less than 0 emit a signal to finish game condition
 func _on_Timer_timeout():
 	time -= TIME_TO_REST;
 	set_particles(time)
 	if time <= 0:
 		emit_signal("no_more_light", time);
-		
 		$Timer.stop();

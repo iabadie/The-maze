@@ -1,5 +1,9 @@
 extends Node2D
 
+const pi = 3.1415;
+const pi4 = pi/4;
+const pi_3_4 = (pi * 3) / 4
+
 var touched = false
 var direction = constants.down;
 const max_ration_length = 40;
@@ -7,6 +11,7 @@ var btnRect = null;
 signal get_motion;
 
 func _ready():
+	# define the analogic area to considerate touch
 	btnRect = Rect2(Vector2(self.global_position.x - 125, self.global_position.y - 125), Vector2(250, 250));
 	
 	
@@ -20,16 +25,15 @@ func _process(delta):
 			# distancia sea de max_ration_length
 			var new_position = get_local_mouse_position().clamped(max_ration_length)
 			$boton.position = new_position
-			
 			var angle = new_position.angle();
-			if angle <= 1.5 || angle >= 0.5:
+			if angle <= pi_3_4 && angle >= pi4:
 				direction = constants.down;
-			elif angle <= -1.5 || angle >= 1.5:
-				direction = constants.left;
-			elif angle >= -1.5 || angle <= -0.5:
+			elif angle >= -pi_3_4 && angle <= -pi4:
 				direction = constants.up;
-			elif angle >= -0.5 || angle <= 0.5:
+			elif angle >= -pi4 && angle <= pi4:
 				direction = constants.right;
+			else:
+				direction = constants.left;
 			
 			# Emite una señal enviando la nueva posición ( clampeada ) para ser utilizada luego por el personaje
 			# Ademas envía el vector proyectado al eje correspondiente dependiendod el angulo del mismo (arriba, abajo, izquierda, derecha)
@@ -41,6 +45,8 @@ func _process(delta):
 		emit_signal("get_motion", $center.position, direction)
 	
 
+# This 2 functions detect when user press into an analogic area
+# And turn on the touched var.
 func _input(event):
     if event is InputEventMouseButton: # If event is mouse click
         # Get click position
