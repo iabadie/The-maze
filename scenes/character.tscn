@@ -1,0 +1,155 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assests/character/Character_NPC_Princess.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 400, 300 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 25.2358, 11.6015 )
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "downAnimation"
+length = 0.5
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("characterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.16, 0.33, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "leftAnimation"
+length = 0.5
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("characterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.17, 0.34, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("characterSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "rightAnimation"
+length = 0.5
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("characterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.18, 0.35, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("characterSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "upAnimation"
+length = 0.5
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("characterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.16, 0.33, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[node name="character" type="KinematicBody2D" index="0"]
+
+position = Vector2( 476.365, 208.409 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="characterSprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -0.929565, 0.951233 )
+scale = Vector2( 1, 1 )
+texture = SubResource( 1 )
+flip_h = true
+vframes = 3
+hframes = 4
+frame = 1
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -1.15033, 36.9079 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/downAnimation = SubResource( 4 )
+anims/leftAnimation = SubResource( 5 )
+anims/rightAnimation = SubResource( 7 )
+anims/upAnimation = SubResource( 6 )
+blend_times = [  ]
+
+
