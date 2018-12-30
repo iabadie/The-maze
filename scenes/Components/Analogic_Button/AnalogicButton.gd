@@ -8,6 +8,8 @@ signal get_motion;
 
 func _ready():
 	btnRect = Rect2(Vector2(self.global_position.x - 125, self.global_position.y - 125), Vector2(250, 250));
+	
+	
 
 func _process(delta):
 	if touched == true:

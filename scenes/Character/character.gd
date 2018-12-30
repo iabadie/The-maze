@@ -7,7 +7,9 @@ func _ready():
 	print(position)
 	position = $"../Map/Position".global_position;
 	$"../UI/Layer/Analogic".connect("get_motion", self, "move_player");
-	pass
+	$"../UI/Layer/TorchUI".connect("change_light", self, "change_light_ratio")
+	
+
 	
 func _physics_process(delta):
 	if direction == constants.up:
@@ -30,3 +32,10 @@ func move_player(vector, new_direction):
 	velocity = vector;
 	direction = new_direction
 	pass
+	
+func change_light_ratio (value):
+	
+	$Light2D.texture_scale=value*4
+	
+	
+	
