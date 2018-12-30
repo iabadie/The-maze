@@ -4,31 +4,31 @@
 [ext_resource path="res://assets/Torch/torch.png" type="Texture" id=2]
 [ext_resource path="res://assets/Torch/fire.png" type="Texture" id=3]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0.00514139, 0.652956, 1 )
 colors = PoolColorArray( 0.953125, 0.746998, 0.0433239, 1, 1, 0.304688, 0, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=3]
+[sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 2 )
+gradient = SubResource( 1 )
 width = 2048
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.825156, 0.272705 ), -3.94935, -3.94935, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
+[sub_resource type="CurveTexture" id=4]
 
 flags = 4
 width = 2048
-curve = SubResource( 4 )
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=5]
 
 render_priority = 0
 trail_divisor = 1
@@ -58,8 +58,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 0.5
 scale_random = 0.2
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -71,7 +71,6 @@ _sections_unfolded = [ "Emission Shape", "Flags", "Gravity", "Initial Velocity",
 
 [node name="TorchUI" type="Node2D" index="0"]
 
-position = Vector2( 509.927, 272.262 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -96,7 +95,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
+process_material = SubResource( 5 )
 texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1

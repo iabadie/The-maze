@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Components/Analogic_Button/AnalogicButton.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Components/Analogic_Button/Button.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 52.2093
+
+[node name="Analogic" type="Node2D"]
+
+position = Vector2( 641, 413 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="center" type="Position2D" parent="." index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="boton" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="touch_area" type="Area2D" parent="." index="2"]
+
+scale = Vector2( 0.995316, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="touch_area_detection" type="CollisionShape2D" parent="touch_area" index="0"]
+
+position = Vector2( 0.150585, 0 )
+scale = Vector2( 1.00471, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[connection signal="input_event" from="touch_area" to="." method="_on_touch_area_input_event"]
+
+

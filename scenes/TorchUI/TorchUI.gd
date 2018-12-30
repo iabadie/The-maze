@@ -15,7 +15,6 @@ func start():
 
 func set_particles(value):
 	var result = value/TIME_MAX;
-	print(result)
 	$FireParticles.scale = Vector2(result, result);
 
 # Function to add torch time when player get a new torch
