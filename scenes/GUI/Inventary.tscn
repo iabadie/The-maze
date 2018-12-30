@@ -1,0 +1,207 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/GUI/Inventary.gd" type="Script" id=1]
+[ext_resource path="res://assets/inventory/inventarybox.png" type="Texture" id=2]
+[ext_resource path="res://scenes/GUI/Item.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 252, 62 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+_sections_unfolded = [ "Axis Stretch", "Content Margin", "Expand Margin", "Margin", "Modulate", "Resource" ]
+
+[sub_resource type="StyleBoxTexture" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 252, 62 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+_sections_unfolded = [ "Axis Stretch", "Content Margin", "Expand Margin", "Margin", "Modulate", "Resource" ]
+
+[node name="Inventary" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="PanelName" type="Panel" parent="." index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 339.0
+margin_top = 139.0
+margin_right = 927.0
+margin_bottom = 195.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 1 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
+
+[node name="Label" type="Label" parent="PanelName" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 293.0
+margin_bottom = 30.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Inventary"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="Panel" type="Panel" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 339.0
+margin_top = 197.0
+margin_right = 927.0
+margin_bottom = 516.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 2 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
+
+[node name="GridWindows" type="GridContainer" parent="Panel" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 21.0
+margin_top = 28.0
+margin_right = 588.0
+margin_bottom = 325.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/vseparation = 138
+custom_constants/hseparation = 138
+columns = 4
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
+
+[node name="Item" parent="Panel/GridWindows" index="0" instance=ExtResource( 3 )]
+
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Item2" parent="Panel/GridWindows" index="1" instance=ExtResource( 3 )]
+
+margin_left = 138.0
+margin_right = 138.0
+margin_bottom = 0.0
+
+[node name="Item3" parent="Panel/GridWindows" index="2" instance=ExtResource( 3 )]
+
+margin_left = 276.0
+margin_right = 276.0
+margin_bottom = 0.0
+
+[node name="Item4" parent="Panel/GridWindows" index="3" instance=ExtResource( 3 )]
+
+margin_left = 414.0
+margin_right = 414.0
+margin_bottom = 0.0
+
+[node name="Item5" parent="Panel/GridWindows" index="4" instance=ExtResource( 3 )]
+
+margin_top = 138.0
+margin_right = 0.0
+margin_bottom = 138.0
+
+[node name="Item6" parent="Panel/GridWindows" index="5" instance=ExtResource( 3 )]
+
+margin_left = 138.0
+margin_top = 138.0
+margin_right = 138.0
+margin_bottom = 138.0
+
+[node name="Item7" parent="Panel/GridWindows" index="6" instance=ExtResource( 3 )]
+
+margin_left = 276.0
+margin_top = 138.0
+margin_right = 276.0
+margin_bottom = 138.0
+
+[node name="Item8" parent="Panel/GridWindows" index="7" instance=ExtResource( 3 )]
+
+margin_left = 414.0
+margin_top = 138.0
+margin_right = 414.0
+margin_bottom = 138.0
+
+[node name="GridItems" type="GridContainer" parent="Panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 21.0
+margin_top = 28.0
+margin_right = 588.0
+margin_bottom = 325.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/vseparation = 138
+custom_constants/hseparation = 138
+columns = 4
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
+
+
