@@ -11,6 +11,7 @@ var btnRect = null;
 signal get_motion;
 
 func _ready():
+	# define the analogic area to considerate touch
 	btnRect = Rect2(Vector2(self.global_position.x - 125, self.global_position.y - 125), Vector2(250, 250));
 	
 	
@@ -44,6 +45,8 @@ func _process(delta):
 		emit_signal("get_motion", $center.position, direction)
 	
 
+# This 2 functions detect when user press into an analogic area
+# And turn on the touched var.
 func _input(event):
     if event is InputEventMouseButton: # If event is mouse click
         # Get click position

@@ -5,9 +5,10 @@
 [ext_resource path="res://assets/inventory/bag.png" type="Texture" id=3]
 [ext_resource path="res://scenes/GUI/Inventary.tscn" type="PackedScene" id=4]
 
-[node name="Bag" type="TouchScreenButton" index="0"]
+[node name="Bag" type="TouchScreenButton"]
 
-position = Vector2( 54.1268, 576.37 )
+modulate = Color( 1, 1, 1, 0.707922 )
+position = Vector2( 49.1268, 572.725 )
 normal = ExtResource( 1 )
 pressed = null
 bitmask = null
