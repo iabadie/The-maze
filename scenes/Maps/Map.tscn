@@ -6,6 +6,7 @@
 
 [node name="Wall" type="TileMap" parent="." index="0"]
 
+light_mask = 31775
 mode = 0
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 64 )
@@ -28,5 +29,13 @@ _sections_unfolded = [ "Collision" ]
 [node name="Position" type="Position2D" parent="." index="1"]
 
 position = Vector2( 126, 112 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
+
+visible = false
+self_modulate = Color( 0.960938, 0.942169, 0.942169, 1 )
+light_mask = 65665
+color = Color( 0.015625, 0.0150146, 0.0150146, 1 )
+_sections_unfolded = [ "Visibility" ]
 
 
