@@ -13,8 +13,23 @@ func _process(delta):
 			# distancia sea de max_ration_length
 			var new_position = get_local_mouse_position().clamped(max_ration_length)
 			$boton.position = new_position
+			
+			var positionLength = new_position.length();
+			var directionatedVector = null;
+			
+			var angle = new_position.angle();
+			if angle <= 1.5 || angle >= 0.5:
+				directionatedVector= Vector2(0, positionLength);
+			elif angle <= -1.5 || angle >= 1.5:
+				directionatedVector = Vector2(-positionLength, 0);
+			elif angle >= -1.5 || angle <= -0.5:
+				directionatedVector = Vector2(0, -positionLength);
+			elif angle >= -0.5 || angle <= 0.5:
+				directionatedVector = Vector2(positionLength, 0);
+			
 			# Emite una señal enviando la nueva posición ( clampeada ) para ser utilizada luego por el personaje
-			emit_signal("get_motion", new_position)
+			# Ademas envía el vector proyectado al eje correspondiente dependiendod el angulo del mismo (arriba, abajo, izquierda, derecha)
+			emit_signal("get_motion", new_position, directionatedVector);
 	elif $boton.position != $center.position:
 		# Si no esta presionado y el botón no está centrado, lo centra
 		$boton.position = $center.position
