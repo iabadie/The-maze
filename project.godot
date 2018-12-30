@@ -13,6 +13,10 @@ config_version=3
 config/name="The Maze"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerData="*res://scripts/PlayerData.gd"
+
 [display]
 
 window/size/width=1280
